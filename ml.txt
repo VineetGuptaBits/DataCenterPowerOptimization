@@ -1,0 +1,3 @@
+
+
+C:\Users\guptav31\AppData\Roaming\Python\Python310\Scripts\mlflow.exe ui

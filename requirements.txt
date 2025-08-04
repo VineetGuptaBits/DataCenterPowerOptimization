@@ -1,0 +1,17 @@
+# Core dependencies
+tensorflow
+bayes-opt
+numpy
+xgboost
+sklearn
+mlflow
+joblib
+pandas
+plotly
+streamlit
+matplotlib
+seaborn
+statsmodels
+scipy
+prophet
+
