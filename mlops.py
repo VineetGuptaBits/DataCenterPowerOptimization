@@ -13,7 +13,9 @@ import os
 import shutil
 from datetime import datetime
 import tensorflow as tf
-import joblib 
+import joblib
+import subprocess
+import socket
 
 def start_mlflow_ui_if_not_running():
     """
@@ -293,3 +295,4 @@ def load_latest_model(model_name, model_type='keras'):
         print(f"An unexpected error occurred during model loading: {e}")
 
         return None
+
