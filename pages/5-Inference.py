@@ -15,7 +15,7 @@ from coolingagent import DataCenterCoolingAgent
 
 # --- Streamlit App Configuration ---
 st.set_page_config(layout="wide")
-st.title("💡 AI Enabled Data Center Power and PUE Dashboard")
+st.title("📈 AI Enabled Data Center Power and PUE Dashboard")
 #st.markdown("---")
 
 warnings.filterwarnings("ignore", category=UserWarning)
@@ -322,11 +322,11 @@ def main(prediction_duration_days,model_name):
     col1, col2, col3, col4, col5 = st.columns(5)
     
     with col1:
-        st.metric(label="Total Facility Power (Before)", value=f"{regular_total_power_sum:,.2f} kWh")
+        st.metric(label="Total Facility Power (Before)", value=f"{int(regular_total_power_sum):,} kWh")
     with col2:
-        st.metric(label="Total Facility Power (After)", value=f"{optimized_total_power_sum:,.2f} kWh")
+        st.metric(label="Total Facility Power (After)", value=f"{int(optimized_total_power_sum):,} kWh") #,.2f
     with col3:
-        st.metric(label="Power Savings", value=f"{power_savings:,.2f} kWh", delta=f"{power_savings_percent:.2f}%")
+        st.metric(label="Power Savings", value=f"{int(power_savings):,} kWh", delta=f"{power_savings_percent:.2f}%")
     with col4:
         st.metric(label="Average PUE (Before)", value=f"{regular_average_pue:.2f}")
     with col5:

@@ -1,6 +1,6 @@
 import streamlit as st
 from model_train import ModelTrainTestOptimize, ModelSelection
-from mlops import MlflowModel, save_model
+from mlops import MlflowModel, save_model, start_mlflow_ui_if_not_running
 from matplotlib import pyplot as plt
 import numpy as np
 import os
@@ -44,9 +44,9 @@ def model_plotting(y_test, y_pred, title):
     return fig
 
 # --- Streamlit Application ---
-st.set_page_config(page_title="Time Series Model Training & Evaluation", layout="wide")
+st.set_page_config(page_title="Time Series Model Training & Evaluation", layout="wide" ,page_icon="🧠")
 
-st.title("Time Series Model Training and Evaluation")
+st.title("🧠 Time Series Model Training and Evaluation")
 
 st.write("""
 This application trains and evaluates RNN, LSTM, GRU, and **XGBoost** models for time series prediction
@@ -386,4 +386,3 @@ else:
 
 st.markdown("---")
 st.markdown("For detailed experiment tracking, visit your MLflow UI at: " + MLFLOW_URL)
-

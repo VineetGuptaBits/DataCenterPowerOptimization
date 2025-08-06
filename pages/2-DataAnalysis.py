@@ -18,12 +18,12 @@ plt.style.use('ggplot')
 # --- Page Configuration ---
 st.set_page_config(
     page_title="DataAnalysis ",
-    page_icon="⏰",
+    page_icon="💡",
     layout="wide"
 )
 
 # --- Title and Description ---
-st.title("⏰ Exploratory Data Analysis of Datacenter Power consumption data")
+st.title("💡 Exploratory Data Analysis of Datacenter Power consumption data")
 st.markdown("""
 This application helps you perform Exploratory Data Analysis (EDA) on your multivariate time series data
 

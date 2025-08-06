@@ -223,9 +223,9 @@ class Preprocessing:
 # ---
 # Streamlit App Layout
 # ---
-st.set_page_config(layout="wide", page_title="Data Preprocessing App")
+st.set_page_config(layout="wide", page_title="Data Preprocessing App",page_icon="⚙️",)
 
-st.title("📊 Data Preprocessing for Time Series")
+st.title("⚙️ Data Preprocessing for Time Series")
 st.markdown("""
 This application helps you preprocess your time-series data for machine learning models.
 Upload your CSV file and follow the steps.
