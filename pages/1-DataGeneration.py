@@ -13,7 +13,7 @@ HISTORICAL_MAX_ROWS = 5000 # Max rows to keep in memory for historical display
 LIVE_MAX_ROWS = 500       # Max rows to keep in memory for live display
 
 st.set_page_config(layout="wide", page_title="Datacenter Dashboard")
-st.header("Datacenter Power Consumption Dashboard")
+st.header("Datacenter Power Data Generation dashboard")
 
 # --- Helper Functions for Data Persistence ---
 
@@ -279,4 +279,5 @@ with tab_live:
 
         # After the loop breaks (stopped), ensure the status is clear
         status_message_placeholder.empty() # Clear the "Generating live data..." message
+
         st.experimental_rerun() # This is critical to ensure Streamlit re-renders the UI after stopping
