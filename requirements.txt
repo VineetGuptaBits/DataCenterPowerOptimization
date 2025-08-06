@@ -3,7 +3,7 @@ tensorflow
 bayesian-optimization
 numpy
 xgboost
-sklearn
+scikit-learn
 mlflow
 joblib
 pandas
@@ -14,6 +14,7 @@ seaborn
 statsmodels
 scipy
 prophet
+
 
 
 
