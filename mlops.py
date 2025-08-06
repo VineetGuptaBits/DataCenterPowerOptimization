@@ -15,6 +15,35 @@ from datetime import datetime
 import tensorflow as tf
 import joblib 
 
+def start_mlflow_ui_if_not_running():
+    """
+    Checks if the MLflow UI is running on the default port (5000)
+    and starts it in a non-blocking way if it's not.
+    """
+    host = '127.0.0.1'
+    port = 5000
+    try:
+        # Try to create a socket connection to the host and port
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.settimeout(1)  # Set a short timeout
+            s.connect((host, port))
+            print(f"MLflow UI is already running at http://{host}:{port}")
+    except (ConnectionRefusedError, socket.timeout):
+        # If the connection is refused or times out, the port is likely free
+        print(f"MLflow UI not detected on http://{host}:{port}. Attempting to start...")
+        try:
+            # Use subprocess.Popen to start the UI in the background
+            # This is a non-blocking call, so the script can continue
+            #subprocess.Popen(["mlflow", "ui"])
+            subprocess.Popen(["C:\\Users\\guptav31\\AppData\\Roaming\\Python\\Python310\\Scripts\\mlflow.exe", "ui"])
+            print("MLflow UI started in the background.")
+            print(f"You can now access it at http://{host}:{port}")
+        except FileNotFoundError:
+            # Handle the case where 'mlflow' command is not in the system's PATH
+            print("Error: 'mlflow' command not found. Please ensure MLflow is installed and in your system's PATH.")
+        except Exception as e:
+            print(f"An unexpected error occurred while starting MLflow UI: {e}")
+            
 class MlflowModel():
     def __init__(self,url,exp):
         self.url = url
@@ -262,4 +291,5 @@ def load_latest_model(model_name, model_type='keras'):
         return loaded_model
     except Exception as e:
         print(f"An unexpected error occurred during model loading: {e}")
+
         return None
