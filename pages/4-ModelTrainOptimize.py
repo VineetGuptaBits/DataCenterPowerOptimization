@@ -8,6 +8,7 @@ import joblib
 import pandas as pd # Added pandas for DataFrame display
 
 # --- Configuration ---
+start_mlflow_ui_if_not_running()
 MLFLOW_URL = "http://127.0.0.1:5000/"
 LOOK_BACK_WINDOW = 10 # Not used directly in the provided snippet but kept for context
 
@@ -385,3 +386,4 @@ else:
 
 st.markdown("---")
 st.markdown("For detailed experiment tracking, visit your MLflow UI at: " + MLFLOW_URL)
+
