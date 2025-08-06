@@ -1,6 +1,6 @@
 # Core dependencies
 tensorflow
-bayes_opt
+bayesian-optimization
 numpy
 xgboost
 sklearn
@@ -14,5 +14,6 @@ seaborn
 statsmodels
 scipy
 prophet
+
 
 
