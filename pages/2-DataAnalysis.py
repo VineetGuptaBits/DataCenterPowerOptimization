@@ -78,7 +78,7 @@ def detect_outliers_zscore(series, threshold=3):
 
 
 #st.sidebar.header("Reading Your Data")
-uploaded_file = 'data\historical_datacenter_data.csv'
+uploaded_file = 'data/historical_datacenter_data.csv'
 
 df = None  # Initialize df outside the if block
 
@@ -344,3 +344,4 @@ if df is not None:
 
             st.info("Remember: ADF tests for the presence of a unit root (non-stationarity as null hypothesis). KPSS tests for stationarity around a deterministic trend (stationarity as null hypothesis).")
     st.markdown("---")
+
