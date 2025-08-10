@@ -248,14 +248,37 @@ train_X_reshaped = None
 train_y_reshaped = None
 test_X_reshaped = None
 test_y_reshaped = None
+uploaded_df = None
 
 # File Uploader
 st.header("1. Upload Your CSV Data")
-uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
 
-if uploaded_file is not None:
+default_file_path = 'data\historical_datacenter_data.csv'
+use_default_file = st.checkbox("Load data file used for Data Analysis")
+
+if use_default_file:
+    try:
+        uploaded_df = pd.read_csv(default_file_path)
+        st.success("Default file loaded successfully!")
+        #st.write(uploaded_df.head()) # Display the first 5 rows of the dataframe
+    except FileNotFoundError:
+        st.error(f"Error: The default file at '{default_file_path}' was not found.")
+else:
+    uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
+    if uploaded_file is not None:
+        try:
+            uploaded_df = pd.read_csv(uploaded_file)
+            st.success("File uploaded successfully!")
+           #st.write(uploaded_df.head()) # Display the first 5 rows of the dataframe
+        except Exception as e:
+            st.error(f"Error loading uploaded file: {e}")
+    #else:
+    #    st.info("Please select the deafult file or upload a CSV file.")
+
+if uploaded_df is not None:
     # Initialize Preprocessing class with the uploaded file
-    preprocess_obj = Preprocessing(dataframe=pd.read_csv(uploaded_file))
+    #preprocess_obj = Preprocessing(dataframe=pd.read_csv(uploaded_file))
+    preprocess_obj = Preprocessing(dataframe=uploaded_df)
 
     st.success("File uploaded successfully!")
 
@@ -462,4 +485,5 @@ if uploaded_file is not None:
             st.info("Please complete previous steps to create time series datasets.")
 
 else:
+
     st.info("Please upload a CSV file to begin preprocessing.")
