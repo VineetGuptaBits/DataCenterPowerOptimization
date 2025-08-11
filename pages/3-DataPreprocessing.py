@@ -253,7 +253,7 @@ uploaded_df = None
 # File Uploader
 st.header("1. Upload Your CSV Data")
 
-default_file_path = 'data\historical_datacenter_data.csv'
+default_file_path = 'data/historical_datacenter_data.csv'
 use_default_file = st.checkbox("Load data file used for Data Analysis")
 
 if use_default_file:
@@ -487,3 +487,4 @@ if uploaded_df is not None:
 else:
 
     st.info("Please upload a CSV file to begin preprocessing.")
+
